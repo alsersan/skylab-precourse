@@ -34,6 +34,13 @@ function airlines() {
 
   console.log(`The average cost of a flight is ${(totalCost / flights.length).toFixed(2)}€.`);
 
+  const connectingFlights = flights.filter((flight) => flight.scale).length;
+  console.log(
+    `There are ${connectingFlights} connecting flights and ${
+      flights.length - connectingFlights
+    } direct flights today.`
+  );
+
   const lastDestinations = [];
   flights.slice(6).forEach((flight) => {
     lastDestinations.push(flight.to);
