@@ -41,13 +41,17 @@ function airlinesPro() {
     if (repeat) executeAdmin();
 
     function addFlight() {
+      if (flights.length === 15) {
+        alert('The maximum amount of stored flights is 15.');
+        return;
+      }
       const origin = prompt('Enter the origin.');
       const destination = prompt('Enter the destination.');
       const cost = prompt('Enter the cost.');
       const connecting = prompt('Is it a connecting flight? Enter true or false');
 
       flights.push({
-        id: flights.length,
+        id: flights[flights.length - 1].id + 1,
         to: destination,
         from: origin,
         cost: parseInt(cost),
@@ -61,6 +65,11 @@ function airlinesPro() {
         prompt('Enter the number (id) of the flight you would like to delete')
       );
       const flightIndex = flights.map((flight) => flight.id).indexOf(flightNumber);
+      if (flightIndex === -1) {
+        alert('The flight number you introduced does not correspond to any existing flight.');
+        return;
+      }
+
       flights.splice(flightIndex, 1);
       console.table(flights);
     }
