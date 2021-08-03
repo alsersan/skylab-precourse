@@ -35,6 +35,34 @@ function airlinesPro() {
     } else {
       const valid = confirm('That input was invalid. Would you like to try again?');
       if (valid) executeAdmin();
+      return;
+    }
+    const repeat = confirm('Admin, would you like to do anything else?');
+    if (repeat) executeAdmin();
+
+    function addFlight() {
+      const origin = prompt('Enter the origin.');
+      const destination = prompt('Enter the destination.');
+      const cost = prompt('Enter the cost.');
+      const connecting = prompt('Is it a connecting flight? Enter true or false');
+
+      flights.push({
+        id: flights.length,
+        to: destination,
+        from: origin,
+        cost: parseInt(cost),
+        scale: connecting,
+      });
+      console.table(flights);
+    }
+
+    function deleteFlight() {
+      const flightNumber = parseInt(
+        prompt('Enter the number (id) of the flight you would like to delete')
+      );
+      const flightIndex = flights.map((flight) => flight.id).indexOf(flightNumber);
+      flights.splice(flightIndex, 1);
+      console.table(flights);
     }
   }
 
