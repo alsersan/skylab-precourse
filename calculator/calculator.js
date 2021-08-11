@@ -7,12 +7,14 @@ function main() {
 
   function askInput(question) {
     const input = prompt(question);
-    const valid = /^\d+$/.test(input);
+    const valid = /^-?\d+\.?\d*$/.test(input);
     if (!valid && input !== null) {
-      const repeat = confirm('The input can only contain numbers. Would you like to try again?');
+      const repeat = confirm(
+        'The input can only contain numbers. Make sure to use a decimal point separator (.) and not a comma (,). Would you like to try again?'
+      );
       if (repeat) askInput(question);
     }
-    if (valid) inputNums.push(parseInt(input));
+    if (valid) inputNums.push(parseFloat(input));
   }
 
   function calculator(inputArray) {
@@ -38,29 +40,29 @@ function main() {
   }
 
   function add(num1, num2) {
-    return num1 + num2;
+    return checkDecimals(num1 + num2);
   }
 
   function substract(num1, num2) {
-    return num1 - num2;
+    return checkDecimals(num1 - num2);
   }
 
   function multiply(num1, num2) {
-    return num1 * num2;
+    return checkDecimals(num1 * num2);
   }
 
   function divide(num1, num2) {
-    const result = num1 / num2;
-    const decimals = result.toString().split('.');
-    if (decimals[1]) return result.toFixed(3);
-    return result;
+    return checkDecimals(num1 / num2);
   }
 
   function sqrRoot(num) {
-    const result = Math.sqrt(num);
-    const decimals = result.toString().split('.');
-    if (decimals[1]) return result.toFixed(3);
-    return result;
+    return checkDecimals(Math.sqrt(num));
+  }
+
+  function checkDecimals(expression) {
+    const decimals = expression.toString().split('.');
+    if (decimals[1]) return expression.toFixed(3);
+    return expression;
   }
 }
 main();
