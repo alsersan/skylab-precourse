@@ -21,14 +21,14 @@ function main() {
       const input = prompt(
         `Please enter number ${index}, or press Cancel to start the calculation`
       );
-      const valid = /^\d+$/.test(input);
+      const valid = /^-?\d+\.?\d*$/.test(input);
       if (!valid && input !== null) {
         const repeat = confirm('The input can only contain numbers. Would you like to try again?');
         if (repeat) askAgain = askInput(index);
         if (!repeat) askAgain = false;
       }
       if (input === null) askAgain = false;
-      if (valid) inputArray.push(parseInt(input));
+      if (valid) inputArray.push(parseFloat(input));
       return askAgain;
     }
   }
@@ -56,29 +56,34 @@ function main() {
   }
 
   function add(inputArray) {
-    return inputArray.reduce((acc, num) => acc + num);
+    const result = inputArray.reduce((acc, num) => acc + num);
+    return checkDecimals(result);
   }
 
   function substract(inputArray) {
-    return inputArray.reduce((acc, num) => acc - num);
+    const result = inputArray.reduce((acc, num) => acc - num);
+    return checkDecimals(result);
   }
 
   function multiply(inputArray) {
-    return inputArray.reduce((acc, num) => acc * num);
+    const result = inputArray.reduce((acc, num) => acc * num);
+    return checkDecimals(result);
   }
 
   function divide(inputArray) {
     const result = inputArray.reduce((acc, num) => acc / num);
-    const decimals = result.toString().split('.');
-    if (decimals[1]) return result.toFixed(3);
-    return result;
+    return checkDecimals(result);
   }
 
   function sqrRoot(num) {
     const result = Math.sqrt(num);
-    const decimals = result.toString().split('.');
-    if (decimals[1]) return result.toFixed(3);
-    return result;
+    return checkDecimals(result);
+  }
+
+  function checkDecimals(expression) {
+    const decimals = expression.toString().split('.');
+    if (decimals[1]) return expression.toFixed(3);
+    return expression;
   }
 }
 main();
