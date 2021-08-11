@@ -15,7 +15,7 @@ const flights = [
 function airlines() {
   const username = prompt("Hi! What's your name")?.trim();
 
-  if (username === null || username === undefined || username === '') {
+  if (username === undefined || username === '') {
     alert("Sorry, we couldn't get your name. Please check the available flights in the console");
   } else {
     alert(`Welcome ${username}. Check the available flights in the console.`);
