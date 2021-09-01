@@ -67,7 +67,7 @@ function checkWinner(numbers, winners) {
 function generateCardNumbers() {
   let nums = new Set();
   while (nums.size < 15) {
-    nums.add(Math.floor(Math.random() * (90 - 1) + 1));
+    nums.add(Math.floor(Math.random() * (90 - 1 + 1) + 1));
   }
   showCard([...nums]);
   const satisfied = confirm(
@@ -78,7 +78,7 @@ function generateCardNumbers() {
 }
 
 function generateBallNumber(calledNumbers) {
-  const newNum = Math.floor(Math.random() * (90 - 1) + 1);
+  const newNum = Math.floor(Math.random() * (90 - 1 + 1) + 1);
   if (calledNumbers.includes(newNum)) {
     return generateBallNumber(calledNumbers);
   } else {
