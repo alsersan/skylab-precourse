@@ -1,13 +1,62 @@
-const play = () => {
-  const questions = createQuestions();
+const main = () => {
+  const username = askName();
+  pasapalabra(username);
 };
-play();
+main();
 
+function pasapalabra(username) {
+  alert(
+    `Bienvenido ${username}. Responde con la palabra correcta, o escribe 'pasapalabra' para dejar esa pregunta para más tarde. A jugar!`
+  );
+  const questions = createQuestions();
+  const questionSet = Math.floor(Math.random() * (2 + 1));
+  let unansweredQuestions;
+  do {
+    for (const letter of questions) {
+      if (letter.status !== 0) continue;
+      const question = letter.questions[questionSet];
+      const answer = prompt(`${question.question}`);
+      if (answer === 'pasapalabra') {
+        continue;
+      } else if (answer === question.answer) {
+        letter.status = 1;
+        console.log('CORRECT');
+      } else if (answer === 'end') {
+        abandon(questions, username);
+      } else {
+        letter.status = 2;
+        console.log('INCORRECT');
+      }
+    }
+    unansweredQuestions = questions.filter((letter) => letter.status === 0).length;
+  } while (unansweredQuestions > 0);
+}
+
+function abandon(questions, username) {
+  let correct, wrong, unanswered;
+  questions.forEach((letter) => {
+    if (letter.status === 0) unanswered++;
+    if (letter.status === 1) correct++;
+    if (letter.status === 2) wrong++;
+  });
+  alert(
+    `Tienes ${correct} respuestas correctas, ${wrong} incorrectas y ${unnanswered} preguntas sin responder. ¡Hasta la próxima, ${username}!`
+  );
+}
+
+function printRound(answer, questions) {}
+
+function askName() {
+  const username = prompt(`¿Cómo te llamas?`)?.trim();
+  return username ? username : 'invitado';
+}
+
+// Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
 function createQuestions() {
   return [
     {
       letter: 'a',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -27,7 +76,7 @@ function createQuestions() {
     },
     {
       letter: 'b',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -47,7 +96,7 @@ function createQuestions() {
     },
     {
       letter: 'c',
-      answered: false,
+      status: 0,
       questions: [
         { question: 'CON LA C. Niño, crío, bebé.', answer: 'churumbel' },
         {
@@ -63,7 +112,7 @@ function createQuestions() {
     },
     {
       letter: 'd',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -83,7 +132,7 @@ function createQuestions() {
     },
     {
       letter: 'e',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -103,7 +152,7 @@ function createQuestions() {
 
     {
       letter: 'f',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA F. Que no requiere gran esfuerzo, capacidad o dificultad.',
@@ -121,7 +170,7 @@ function createQuestions() {
     },
     {
       letter: 'g',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -141,7 +190,7 @@ function createQuestions() {
     },
     {
       letter: 'h',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA H. Suicidio ritual japonés por desentrañamiento.',
@@ -160,7 +209,7 @@ function createQuestions() {
     },
     {
       letter: 'i',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA I. Templo cristiano.',
@@ -179,7 +228,7 @@ function createQuestions() {
     },
     {
       letter: 'j',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -199,7 +248,7 @@ function createQuestions() {
     },
     {
       letter: 'k',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA K. Persona que se juega la vida realizando una acción temeraria.',
@@ -218,7 +267,7 @@ function createQuestions() {
 
     {
       letter: 'l',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA L. Único satélite natural de la Tierra.',
@@ -238,7 +287,7 @@ function createQuestions() {
 
     {
       letter: 'm',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -259,7 +308,7 @@ function createQuestions() {
     },
     {
       letter: 'n',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA N. Demostración de poca inteligencia.',
@@ -278,7 +327,7 @@ function createQuestions() {
     },
     {
       letter: 'ñ',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -297,7 +346,7 @@ function createQuestions() {
     },
     {
       letter: 'o',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -317,7 +366,7 @@ function createQuestions() {
     },
     {
       letter: 'p',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -337,7 +386,7 @@ function createQuestions() {
     },
     {
       letter: 'q',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA Q. Producto obtenido por la maduración de la cuajada de la leche',
@@ -353,7 +402,7 @@ function createQuestions() {
     },
     {
       letter: 'r',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: "CON LA R. Ciudad Elfica gobernada por Elrond en 'El señor de los anillos'.",
@@ -373,7 +422,7 @@ function createQuestions() {
     },
     {
       letter: 's',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CON LA S. Comunidad salvadora de todo desarrollador informático.',
@@ -392,7 +441,7 @@ function createQuestions() {
     },
     {
       letter: 't',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -413,7 +462,7 @@ function createQuestions() {
     },
     {
       letter: 'u',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -432,7 +481,7 @@ function createQuestions() {
     },
     {
       letter: 'v',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -452,7 +501,7 @@ function createQuestions() {
     },
     {
       letter: 'w',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -472,7 +521,7 @@ function createQuestions() {
     },
     {
       letter: 'x',
-      answered: false,
+      status: 0,
       questions: [
         {
           question: 'CONTIENE LA X. Toxina bacteriana utilizada en cirujía estética.',
@@ -491,7 +540,7 @@ function createQuestions() {
     },
     {
       letter: 'y',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
@@ -512,7 +561,7 @@ function createQuestions() {
     },
     {
       letter: 'z',
-      answered: false,
+      status: 0,
       questions: [
         {
           question:
