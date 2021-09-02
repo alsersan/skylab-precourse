@@ -16,7 +16,7 @@ function pasapalabra(questions) {
       if (letter.status !== 0) continue;
       const question = letter.questions[questionSet];
       let answer = prompt(`${question.question}`);
-      if (answer) answer = answer.trim().toLowerCase();
+      if (answer) answer = removeAccents(answer).trim().toLowerCase();
       if (answer === 'pasapalabra') {
         continue;
       } else if (answer === question.answer) {
@@ -66,6 +66,13 @@ function welcomeUser(username) {
 function askName() {
   const username = prompt(`¿Cómo te llamas?`)?.trim();
   return username ? username : 'invitado';
+}
+
+function removeAccents(text) {
+  return text
+    .normalize('NFD')
+    .replace(/([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi, '$1')
+    .normalize();
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
