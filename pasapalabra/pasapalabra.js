@@ -1,50 +1,67 @@
 const main = () => {
   const username = askName();
-  pasapalabra(username);
+  welcomeUser(username);
+  const questions = createQuestions();
+  pasapalabra(questions);
+  const score = getScore(questions);
+  printScore(username, score);
 };
 main();
 
-function pasapalabra(username) {
-  alert(
-    `Bienvenido ${username}. Responde con la palabra correcta, o escribe 'pasapalabra' para dejar esa pregunta para más tarde. A jugar!`
-  );
-  const questions = createQuestions();
+function pasapalabra(questions) {
   const questionSet = Math.floor(Math.random() * (2 + 1));
   let unansweredQuestions;
   do {
     for (const letter of questions) {
       if (letter.status !== 0) continue;
       const question = letter.questions[questionSet];
-      const answer = prompt(`${question.question}`);
+      let answer = prompt(`${question.question}`);
+      if (answer) answer = answer.trim().toLowerCase();
       if (answer === 'pasapalabra') {
         continue;
       } else if (answer === question.answer) {
         letter.status = 1;
-        console.log('CORRECT');
-      } else if (answer === 'end') {
-        abandon(questions, username);
+        console.log(`'${answer}' es CORRECTO.`);
+      } else if (answer === 'end' || answer === null) {
+        return;
       } else {
         letter.status = 2;
-        console.log('INCORRECT');
+        console.log(`'${answer}' es INCORRECTO. La respuesta correcta es: ${question.answer}.`);
       }
     }
     unansweredQuestions = questions.filter((letter) => letter.status === 0).length;
   } while (unansweredQuestions > 0);
 }
 
-function abandon(questions, username) {
-  let correct, wrong, unanswered;
+function getScore(questions) {
+  let correct = 0;
+  let wrong = 0;
+  let unanswered = 0;
   questions.forEach((letter) => {
     if (letter.status === 0) unanswered++;
     if (letter.status === 1) correct++;
     if (letter.status === 2) wrong++;
   });
+  return { correct, wrong, unanswered };
+}
+
+function printScore(username, score) {
+  const { correct, wrong, unanswered } = score;
+  const string1 = correct === 1 ? 'respuesta correcta' : 'respuestas correctas';
+  const string2 = wrong === 1 ? 'respuesta incorrecta' : 'respuestas incorrectas';
+  const string3 = unanswered === 1 ? 'pregunta' : 'preguntas';
   alert(
-    `Tienes ${correct} respuestas correctas, ${wrong} incorrectas y ${unnanswered} preguntas sin responder. ¡Hasta la próxima, ${username}!`
+    `Tienes${
+      unanswered > 0 ? ` ${unanswered} ${string3} sin responder,` : ''
+    } ${correct} ${string1} y ${wrong} ${string2}. ¡Hasta la próxima, ${username}!`
   );
 }
 
-function printRound(answer, questions) {}
+function welcomeUser(username) {
+  alert(
+    `Bienvenido ${username}. Responde con la palabra correcta, o escribe 'pasapalabra' para dejar esa pregunta para más tarde. Puedes escribir 'end' o pulsar 'Cancel' en cualquier pregunta para abandonar. ¡A jugar!`
+  );
+}
 
 function askName() {
   const username = prompt(`¿Cómo te llamas?`)?.trim();
