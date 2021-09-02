@@ -5,6 +5,7 @@ const main = () => {
   pasapalabra(questions);
   const score = getScore(questions);
   printScore(username, score);
+  printLeaderboard(username, score);
 };
 main();
 
@@ -73,6 +74,36 @@ function removeAccents(text) {
     .normalize('NFD')
     .replace(/([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi, '$1')
     .normalize();
+}
+
+function printLeaderboard(username, score) {
+  const dummyResults = [
+    {
+      username: 'Potatoman',
+      correctAnswers: 12,
+    },
+    {
+      username: 'Da_best',
+      correctAnswers: 23,
+    },
+    {
+      username: 'Eternal loser',
+      correctAnswers: 2,
+    },
+    {
+      username,
+      correctAnswers: score.correct,
+    },
+  ];
+  if (score.unanswered === 0) {
+    let leaderboard = '';
+    dummyResults
+      .sort((a, b) => b.correctAnswers - a.correctAnswers)
+      .forEach((result) => {
+        leaderboard += `${result.username}: ${result.correctAnswers} respuestas correctas \n`;
+      });
+    alert(`Leaderboard\n\n${leaderboard}`);
+  }
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
