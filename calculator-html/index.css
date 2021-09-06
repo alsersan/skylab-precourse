@@ -23,15 +23,29 @@ body {
 }
 
 .display {
+  display: flex;
+  flex-direction: column;
   height: 80px;
   text-align: end;
   background-color: #2b3244;
   outline: 1px solid black;
+  color: white;
+  padding: 5px 8px;
 }
 
-.display__text {
-  color: white;
-  font-size: 40px;
+.display__operation {
+  display: flex;
+  justify-content: end;
+  flex: 1 1 0;
+  font-size: 20px;
+}
+
+.display__result {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  flex: 2 1 0;
+  font-size: 35px;
 }
 
 .row {

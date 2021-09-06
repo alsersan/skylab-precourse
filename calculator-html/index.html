@@ -10,87 +10,90 @@
   <body>
     <main class="calculator">
       <div class="display">
-        <span class="display__text">20</span>
+        <span class="display__operation">20x5</span>
+        <span class="display__result">20</span>
       </div>
-      <div class="row">
-        <button type="button" class="button button--big" id="reset">
-          <span class="button__text">AC</span>
-        </button>
-        <button type="button" class="button" id="delete">
-          <span class="button__text">&#10226;</span>
-        </button>
-        <button type="button" class="button button--orange" id="divide">
-          <span class="button__text button__text--white">&divide;</span>
-        </button>
-        <button type="button" class="button button--orange" id="open-parenthesis">
-          <span class="button__text button__text--white">(</span>
-        </button>
-      </div>
-      <div class="row">
-        <button type="button" class="button" id="number7">
-          <span class="button__text">7</span>
-        </button>
-        <button type="button" class="button" id="number8">
-          <span class="button__text">8</span>
-        </button>
-        <button type="button" class="button" id="number9">
-          <span class="button__text">9</span>
-        </button>
-        <button type="button" class="button button--orange" id="multiply">
-          <span class="button__text button__text--white">x</span>
-        </button>
-        <button type="button" class="button button--orange" id="close-parenthesis">
-          <span class="button__text button__text--white">)</span>
-        </button>
-      </div>
-      <div class="row">
-        <button type="button" class="button" id="number4">
-          <span class="button__text">4</span>
-        </button>
-        <button type="button" class="button" id="number5">
-          <span class="button__text">5</span>
-        </button>
-        <button type="button" class="button" id="number6">
-          <span class="button__text">6</span>
-        </button>
-        <button type="button" class="button button--orange" id="substract">
-          <span class="button__text button__text--white">-</span>
-        </button>
-        <button type="button" class="button button--orange" id="square-root">
-          <span class="button__text button__text--white">&radic;</span>
-        </button>
-      </div>
-      <div class="row">
-        <button type="button" class="button" id="number1">
-          <span class="button__text">1</span>
-        </button>
-        <button type="button" class="button" id="number2">
-          <span class="button__text">2</span>
-        </button>
-        <button type="button" class="button" id="number3">
-          <span class="button__text">3</span>
-        </button>
-        <button type="button" class="button button--orange" id="add-btn">
-          <span class="button__text button__text--white">+</span>
-        </button>
-        <button type="button" class="button button--orange" id="squared">
-          <span class="button__text button__text--white">x&sup2;</span>
-        </button>
-      </div>
+      <div class="button-container">
+        <div class="row">
+          <button type="button" class="button button--big" id="reset">
+            <span class="button__text">AC</span>
+          </button>
+          <button type="button" class="button" id="delete">
+            <span class="button__text">&#10226;</span>
+          </button>
+          <button type="button" class="button button--orange" id="divide">
+            <span class="button__text button__text--white">&divide;</span>
+          </button>
+          <button type="button" class="button button--orange" id="open-parenthesis">
+            <span class="button__text button__text--white">(</span>
+          </button>
+        </div>
+        <div class="row">
+          <button type="button" class="button" id="number7">
+            <span class="button__text">7</span>
+          </button>
+          <button type="button" class="button" id="number8">
+            <span class="button__text">8</span>
+          </button>
+          <button type="button" class="button" id="number9">
+            <span class="button__text">9</span>
+          </button>
+          <button type="button" class="button button--orange" id="multiply">
+            <span class="button__text button__text--white">x</span>
+          </button>
+          <button type="button" class="button button--orange" id="close-parenthesis">
+            <span class="button__text button__text--white">)</span>
+          </button>
+        </div>
+        <div class="row">
+          <button type="button" class="button" id="number4">
+            <span class="button__text">4</span>
+          </button>
+          <button type="button" class="button" id="number5">
+            <span class="button__text">5</span>
+          </button>
+          <button type="button" class="button" id="number6">
+            <span class="button__text">6</span>
+          </button>
+          <button type="button" class="button button--orange" id="substract">
+            <span class="button__text button__text--white">-</span>
+          </button>
+          <button type="button" class="button button--orange" id="square-root">
+            <span class="button__text button__text--white">&radic;</span>
+          </button>
+        </div>
+        <div class="row">
+          <button type="button" class="button" id="number1">
+            <span class="button__text">1</span>
+          </button>
+          <button type="button" class="button" id="number2">
+            <span class="button__text">2</span>
+          </button>
+          <button type="button" class="button" id="number3">
+            <span class="button__text">3</span>
+          </button>
+          <button type="button" class="button button--orange" id="add-btn">
+            <span class="button__text button__text--white">+</span>
+          </button>
+          <button type="button" class="button button--orange" id="squared">
+            <span class="button__text button__text--white">x&sup2;</span>
+          </button>
+        </div>
 
-      <div class="row">
-        <button type="button" class="button button--big" id="number0">
-          <span class="button__text">0</span>
-        </button>
-        <button type="button" class="button" id="decimal">
-          <span class="button__text">.</span>
-        </button>
-        <button type="button" class="button button--orange" id="equal">
-          <span class="button__text button__text--white">=</span>
-        </button>
-        <button type="button" class="button button--orange" id="answer">
-          <span class="button__text button__text--white">Ans</span>
-        </button>
+        <div class="row">
+          <button type="button" class="button button--big" id="number0">
+            <span class="button__text">0</span>
+          </button>
+          <button type="button" class="button" id="decimal">
+            <span class="button__text">.</span>
+          </button>
+          <button type="button" class="button button--orange" id="equal">
+            <span class="button__text button__text--white">=</span>
+          </button>
+          <button type="button" class="button button--orange" id="answer">
+            <span class="button__text button__text--white">Ans</span>
+          </button>
+        </div>
       </div>
     </main>
     <script src="index.js"></script>
