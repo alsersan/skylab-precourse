@@ -4,8 +4,8 @@ const result = document.querySelector('.display__result');
 
 let expression = '';
 function onClick(e) {
-  if (!expression && e.target.innerText !== /d/) expression += result.innerText;
-  console.log(e);
+  // don't operate on the previous result if the expression is empty or if a number btn or delete btn is pressed
+  if (!expression && !e.target.innerText.match(/\d|\u27f2/)) expression += result.innerText;
   switch (e.target.id) {
     case 'reset':
       expression = addText('', '');
@@ -16,6 +16,7 @@ function onClick(e) {
       operation.innerText = expression;
       break;
     case 'equal':
+      // Replace the expression with the correct operators
       expression = expression
         .replace(/x/g, '*')
         .replace(/\u00f7/g, '/')
@@ -23,8 +24,7 @@ function onClick(e) {
         .replace(/\u00b3/g, '**3');
       console.log(expression);
       try {
-        const finalResult = eval(`${expression}`);
-        console.log(result);
+        const finalResult = eval(expression);
         result.innerText = finalResult;
       } catch (e) {
         console.log(e);
