@@ -20,6 +20,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 5px;
+  overflow: hidden;
+  border: solid 1px black;
+  box-shadow: 0 0 10px #666;
 }
 
 .display {
@@ -28,7 +32,6 @@ body {
   height: 80px;
   text-align: end;
   background-color: #2b3244;
-  outline: 1px solid black;
   color: white;
   padding: 5px 8px;
 }
