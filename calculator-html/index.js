@@ -1,9 +1,11 @@
 document.querySelector('.button-container').addEventListener('click', onClick);
 const operation = document.querySelector('.display__operation');
-const finalResult = document.querySelector('.display__result');
+const result = document.querySelector('.display__result');
 
 let expression = '';
 function onClick(e) {
+  if (!expression && e.target.innerText !== /d/) expression += result.innerText;
+  console.log(e);
   switch (e.target.id) {
     case 'equal':
       expression = expression
@@ -12,12 +14,13 @@ function onClick(e) {
         .replace(/\u00b2/g, '**2');
       console.log(expression);
       try {
-        const result = eval(`${expression}`);
+        const finalResult = eval(`${expression}`);
         console.log(result);
-        finalResult.innerText = result;
+        result.innerText = finalResult;
       } catch (e) {
         console.log(e);
       }
+      expression = addText('', '');
       break;
     case 'squared':
       expression = addText('\u00b2', expression);
