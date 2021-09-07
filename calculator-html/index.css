@@ -38,6 +38,7 @@ body {
   justify-content: end;
   flex: 1 1 0;
   font-size: 20px;
+  overflow: hidden;
 }
 
 .display__result {
@@ -46,6 +47,7 @@ body {
   align-items: flex-end;
   flex: 2 1 0;
   font-size: 35px;
+  overflow: hidden;
 }
 
 .row {
@@ -81,7 +83,8 @@ body {
 }
 
 .button__text {
-  font-size: 20px;
+  font-size: 22px;
+  pointer-events: none;
 }
 
 .button__text--white {
