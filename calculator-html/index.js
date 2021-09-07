@@ -11,7 +11,8 @@ function onClick(e) {
       expression = expression
         .replace(/x/g, '*')
         .replace(/\u00f7/g, '/')
-        .replace(/\u00b2/g, '**2');
+        .replace(/\u00b2/g, '**2')
+        .replace(/\u00b3/g, '**3');
       console.log(expression);
       try {
         const finalResult = eval(`${expression}`);
@@ -24,6 +25,9 @@ function onClick(e) {
       break;
     case 'squared':
       expression = addText('\u00b2', expression);
+      break;
+    case 'cubed':
+      expression = addText('\u00b3', expression);
       break;
     default:
       expression = addText(e.target.innerText, expression);
