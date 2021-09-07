@@ -11,6 +11,10 @@ function onClick(e) {
       expression = addText('', '');
       result.innerText = '0';
       break;
+    case 'delete':
+      expression = expression.slice(0, -1);
+      operation.innerText = expression;
+      break;
     case 'equal':
       expression = expression
         .replace(/x/g, '*')
