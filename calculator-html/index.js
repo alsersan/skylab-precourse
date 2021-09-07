@@ -7,6 +7,10 @@ function onClick(e) {
   if (!expression && e.target.innerText !== /d/) expression += result.innerText;
   console.log(e);
   switch (e.target.id) {
+    case 'reset':
+      expression = addText('', '');
+      result.innerText = '0';
+      break;
     case 'equal':
       expression = expression
         .replace(/x/g, '*')
