@@ -71,6 +71,10 @@ body {
   background-color: #ccc;
 }
 
+.button:active {
+  box-shadow: 0 0 5px black inset;
+}
+
 .button--big {
   flex-grow: 2;
 }
