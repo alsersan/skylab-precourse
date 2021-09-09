@@ -22,12 +22,11 @@ function onClick(e) {
         .replace(/\u00f7/g, '/')
         .replace(/\u00b2/g, '**2')
         .replace(/\u00b3/g, '**3');
-      console.log(expression);
       try {
         const finalResult = eval(expression);
         result.innerText = finalResult;
       } catch (e) {
-        console.log(e);
+        alert('Invalid expression');
       }
       expression = addText('', '');
       break;
@@ -39,7 +38,6 @@ function onClick(e) {
       break;
     default:
       expression = addText(e.target.innerText, expression);
-      console.log(expression);
   }
 }
 
