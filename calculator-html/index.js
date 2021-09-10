@@ -22,14 +22,15 @@ function onClick(e) {
         .replace(/x/g, '*')
         .replace(/\u00f7/g, '/')
         .replace(/\u00b2/g, '**2')
-        .replace(/\u00b3/g, '**3');
+        .replace(/\u00b3/g, '**3')
+        .replace(/\u221E/g, 'Infinity');
       if (/\u221a/.test(expression)) {
         expression = parseSqrRoot(expression);
       }
       console.log(expression);
       try {
         const finalResult = eval(expression);
-        result.innerText = finalResult;
+        result.innerText = finalResult.toString().replace('Infinity', '\u221E');
         expression = '';
       } catch (e) {
         console.log(e);
