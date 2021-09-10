@@ -30,10 +30,12 @@ function onClick(e) {
       try {
         const finalResult = eval(expression);
         result.innerText = finalResult;
+        expression = '';
       } catch (e) {
+        console.log(e);
         alert('Invalid expression');
+        expression = addText('', '');
       }
-      expression = addText('', '');
       break;
     case 'squared':
       expression = addText('\u00b2', expression);
