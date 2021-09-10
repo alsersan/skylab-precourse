@@ -1,3 +1,9 @@
+:root {
+  --total-width: 400px;
+  --number-rows: 5;
+  --square-height: calc(var(--total-width) / var(--number-rows));
+}
+
 html {
   box-sizing: border-box;
 }
@@ -15,7 +21,7 @@ body {
 }
 
 .calculator {
-  width: 400px;
+  width: var(--total-width);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -29,7 +35,7 @@ body {
 .display {
   display: flex;
   flex-direction: column;
-  height: 80px;
+  height: var(--square-height);
   text-align: end;
   background-color: #2b3244;
   color: white;
@@ -58,7 +64,7 @@ body {
 }
 
 .button {
-  height: 80px;
+  height: var(--square-height);
   display: flex;
   justify-content: center;
   align-items: center;
