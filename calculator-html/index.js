@@ -28,8 +28,8 @@ function onClick(e) {
     case 'squared':
       expression = addText('\u00b2', expression);
       break;
-    case 'cubed':
-      expression = addText('\u00b3', expression);
+    case 'answer':
+      expression = addText(result.innerText, expression);
       break;
     default:
       expression = addText(e.target.innerText, expression);
@@ -47,14 +47,18 @@ function replaceOperators(expression) {
     .replace(/x/g, '*')
     .replace(/\u00f7/g, '/')
     .replace(/\u00b2/g, '**2')
-    .replace(/\u00b3/g, '**3')
     .replace(/\u221E/g, 'Infinity');
 }
 
 function calculateResult(expression) {
   try {
-    const finalResult = eval(expression);
-    result.innerText = finalResult.toString().replace('Infinity', '\u221E');
+    const finalResult = eval(expression).toString().replace('Infinity', '\u221E');
+    // If result is too long to fit, display it in scientific notation
+    if (finalResult.length > 16) {
+      result.innerText = parseFloat(finalResult).toExponential(6);
+    } else {
+      result.innerText = finalResult;
+    }
     expression = '';
   } catch (e) {
     console.error(e);
