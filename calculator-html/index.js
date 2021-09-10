@@ -57,8 +57,8 @@ function calculateResult(expression) {
     result.innerText = finalResult.toString().replace('Infinity', '\u221E');
     expression = '';
   } catch (e) {
-    console.log(e);
-    alert('Invalid expression');
+    console.error(e);
+    alert(`Invalid expression\n\nError message: ${e}`);
     expression = addText('', '');
   }
   return expression;
@@ -79,7 +79,7 @@ function parseSqrRoot(expression) {
     let lastIndex;
     if (newExpression[next] === '(') {
       lastIndex = findClosingParenthesisIndex(newExpression, next);
-    } else if (/\d/.test(newExpression[next])) {
+    } else if (/\d|-/.test(newExpression[next])) {
       lastIndex = findLastConsecutiveNumericCharacterIndex(newExpression, next);
     }
     if (lastIndex) {
