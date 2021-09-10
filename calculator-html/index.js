@@ -20,26 +20,10 @@ function onClick(e) {
       operation.innerText = expression;
       break;
     case 'equal':
-      // Replace the expression with the correct operators
-      expression = expression
-        .replace(/x/g, '*')
-        .replace(/\u00f7/g, '/')
-        .replace(/\u00b2/g, '**2')
-        .replace(/\u00b3/g, '**3')
-        .replace(/\u221E/g, 'Infinity');
-      if (/\u221a/.test(expression)) {
-        expression = parseSqrRoot(expression);
-      }
+      expression = replaceOperators(expression);
+      if (/\u221a/.test(expression)) expression = parseSqrRoot(expression);
       console.log(expression);
-      try {
-        const finalResult = eval(expression);
-        result.innerText = finalResult.toString().replace('Infinity', '\u221E');
-        expression = '';
-      } catch (e) {
-        console.log(e);
-        alert('Invalid expression');
-        expression = addText('', '');
-      }
+      expression = calculateResult(expression);
       break;
     case 'squared':
       expression = addText('\u00b2', expression);
@@ -56,6 +40,28 @@ function addText(newChar, text) {
   const newText = text + newChar;
   operation.innerText = newText;
   return newText;
+}
+
+function replaceOperators(expression) {
+  return expression
+    .replace(/x/g, '*')
+    .replace(/\u00f7/g, '/')
+    .replace(/\u00b2/g, '**2')
+    .replace(/\u00b3/g, '**3')
+    .replace(/\u221E/g, 'Infinity');
+}
+
+function calculateResult(expression) {
+  try {
+    const finalResult = eval(expression);
+    result.innerText = finalResult.toString().replace('Infinity', '\u221E');
+    expression = '';
+  } catch (e) {
+    console.log(e);
+    alert('Invalid expression');
+    expression = addText('', '');
+  }
+  return expression;
 }
 
 // The functions below are necessary to calculate square roots
