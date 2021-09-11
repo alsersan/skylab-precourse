@@ -4,8 +4,8 @@ const result = document.querySelector('.display__result');
 
 let expression = '';
 function onClick(e) {
-  // don't operate on the previous result if the expression is empty or if number, delete, sqrRoot or parenthesis is pressed
-  if (!expression && !/\d|\u27f2|\u221a|\(|\)/.test(e.target.innerText))
+  // don't operate on the previous result if the expression is empty or if number, delete, Ans, sqrRoot or parenthesis is pressed
+  if (!expression && !/\d|\u27f2|\u221a|\(|\)|Ans/.test(e.target.innerText))
     if (!(result.innerText === '0' && /-/.test(e.target.innerText))) {
       // For the - sign, only operate on previous results if the result is not 0
       expression += result.innerText;
