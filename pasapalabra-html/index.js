@@ -3,7 +3,7 @@ document.getElementById('user-input').addEventListener('submit', handleSubmit);
 document.querySelector('.pasapalabra').addEventListener('click', handlePasapalabra);
 
 let index = 0;
-let unanswered = 27;
+let unanswered = 25;
 let correct = 0;
 let incorrect = 0;
 
@@ -30,7 +30,7 @@ function handleSubmit(e) {
   }
   textField.value = '';
   index++;
-  if (index > 26) index = 0;
+  if (index > 24) index = 0;
   updateResults();
   askQuestion();
 }
@@ -38,7 +38,7 @@ function handleSubmit(e) {
 function handlePasapalabra() {
   console.log('PASAPALABRA');
   index++;
-  if (index > 26) index = 0;
+  if (index > 24) index = 0;
   updateResults();
   askQuestion();
 }
@@ -168,7 +168,6 @@ function createQuestions() {
         },
       ],
     },
-
     {
       letter: 'f',
       status: 0,
@@ -266,25 +265,6 @@ function createQuestions() {
       ],
     },
     {
-      letter: 'k',
-      status: 0,
-      questions: [
-        {
-          question: 'CON LA K. Persona que se juega la vida realizando una acción temeraria.',
-          answer: 'kamikaze',
-        },
-        {
-          question: 'CON LA K. Espada japonesa portada por los samurais.',
-          answer: 'katana',
-        },
-        {
-          question: 'CON LA K. Unidad de medida de distancia.',
-          answer: 'kilometro',
-        },
-      ],
-    },
-
-    {
       letter: 'l',
       status: 0,
       questions: [
@@ -303,7 +283,6 @@ function createQuestions() {
         },
       ],
     },
-
     {
       letter: 'm',
       status: 0,
@@ -515,26 +494,6 @@ function createQuestions() {
         {
           question: 'CON LA V. Hortaliza, especialmente la de hojas verdes.',
           answer: 'verdura',
-        },
-      ],
-    },
-    {
-      letter: 'w',
-      status: 0,
-      questions: [
-        {
-          question:
-            'CONTIENE LA W. Emparedado hecho con dos rebanadas de pan entre las cuales se coloca jamón y queso.',
-          answer: 'sandwich',
-        },
-        {
-          question: 'CON LA W. Nombre de la bruja escarlata en el universo Marvel.',
-          answer: 'wanda',
-        },
-        {
-          question:
-            'CON LA W. Deporte que consiste en deslizarse por el agua sobre una tabla especial provista de una vela.',
-          answer: 'windsurf',
         },
       ],
     },
