@@ -64,6 +64,12 @@ body {
   bottom: 5%;
 }
 
+.pasapalabra {
+  position: absolute;
+  right: 5%;
+  bottom: 1%;
+}
+
 /* Specific position of each small circle */
 .letter-a {
   transform: rotate(calc((var(--degrees) * 0) - 90deg)) translate(var(--main-radius))

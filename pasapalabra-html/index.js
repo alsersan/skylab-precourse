@@ -1,6 +1,6 @@
 const question = document.querySelector('.question');
-const form = document.getElementById('user-input');
-form.addEventListener('submit', handleSubmit);
+document.getElementById('user-input').addEventListener('submit', handleSubmit);
+document.querySelector('.pasapalabra').addEventListener('click', handlePasapalabra);
 
 let answer = '';
 let index = 0;
@@ -23,6 +23,13 @@ function handleSubmit(e) {
     questions[index].status = 2;
   }
   textField.value = '';
+  index++;
+  if (index > 26) index = 0;
+  askQuestion();
+}
+
+function handlePasapalabra() {
+  console.log('PASAPALABRA');
   index++;
   if (index > 26) index = 0;
   askQuestion();
