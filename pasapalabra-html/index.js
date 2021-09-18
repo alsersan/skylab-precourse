@@ -2,8 +2,10 @@ const question = document.querySelector('.question');
 document.getElementById('user-input').addEventListener('submit', handleSubmit);
 document.querySelector('.pasapalabra').addEventListener('click', handlePasapalabra);
 
-let answer = '';
 let index = 0;
+let unanswered = 27;
+let correct = 0;
+let incorrect = 0;
 
 const questions = createQuestions();
 askQuestion();
@@ -13,18 +15,23 @@ function handleSubmit(e) {
 
   const textField = e.target[0];
   console.log(textField.value);
-  answer = removeAccents(textField.value).trim().toLowerCase();
+  const answer = removeAccents(textField.value).trim().toLowerCase();
 
   if (answer === questions[index].questions[0].answer) {
     console.log('CORRECT');
     questions[index].status = 1;
+    correct++;
+    unanswered--;
   } else {
     console.log('INCORRECT');
     questions[index].status = 2;
+    incorrect++;
+    unanswered--;
   }
   textField.value = '';
   index++;
   if (index > 26) index = 0;
+  updateResults();
   askQuestion();
 }
 
@@ -32,17 +39,28 @@ function handlePasapalabra() {
   console.log('PASAPALABRA');
   index++;
   if (index > 26) index = 0;
+  updateResults();
   askQuestion();
 }
 
 function askQuestion() {
   console.log(index);
+  if (unanswered === 0) {
+    alert('GAME FINISHED');
+    return;
+  }
   if (questions[index].status !== 0) {
     index++;
     askQuestion();
     return;
   }
   question.innerText = questions[index].questions[0].question;
+}
+
+function updateResults() {
+  document.querySelector('.results__unanswered').innerText = unanswered;
+  document.querySelector('.results__correct').innerText = correct;
+  document.querySelector('.results__incorrect').innerText = incorrect;
 }
 
 function removeAccents(text) {
