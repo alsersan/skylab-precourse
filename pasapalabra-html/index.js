@@ -1,4 +1,49 @@
+const question = document.querySelector('.question');
+const form = document.getElementById('user-input');
+form.addEventListener('submit', handleSubmit);
+
+let answer = '';
+let index = 0;
+
 const questions = createQuestions();
+askQuestion();
+
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const textField = e.target[0];
+  console.log(textField.value);
+  answer = removeAccents(textField.value).trim().toLowerCase();
+
+  if (answer === questions[index].questions[0].answer) {
+    console.log('CORRECT');
+    questions[index].status = 1;
+  } else {
+    console.log('INCORRECT');
+    questions[index].status = 2;
+  }
+  textField.value = '';
+  index++;
+  if (index > 26) index = 0;
+  askQuestion();
+}
+
+function askQuestion() {
+  console.log(index);
+  if (questions[index].status !== 0) {
+    index++;
+    askQuestion();
+    return;
+  }
+  question.innerText = questions[index].questions[0].question;
+}
+
+function removeAccents(text) {
+  return text
+    .normalize('NFD')
+    .replace(/([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi, '$1')
+    .normalize();
+}
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
 function createQuestions() {
