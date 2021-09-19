@@ -1,7 +1,7 @@
 :root {
   --num-elements: 25;
   --main-circle: 500px;
-  --small-circle: 50px;
+  --small-circle: 55px;
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
 }
@@ -41,10 +41,18 @@ body {
   width: var(--small-circle);
   height: var(--small-circle);
   border-radius: 50%;
-  background-color: lightsalmon;
+  border: 2px solid white;
+  background-image: linear-gradient(to right, #034cfe, #0564fc);
   top: 50%;
   left: 50%;
   margin: calc((var(--small-circle) / 2) * (-1));
+}
+
+.small-circle__text {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 3px 3px #0635fb;
 }
 
 .results {
