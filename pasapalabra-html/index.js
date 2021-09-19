@@ -51,6 +51,7 @@ function askQuestion() {
   }
   if (questions[index].status !== 0) {
     index++;
+    if (index > 24) index = 0;
     askQuestion();
     return;
   }
