@@ -4,6 +4,7 @@
   --small-circle: 45px;
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
+  --scale: 1;
 }
 
 html {
@@ -42,11 +43,21 @@ body {
   height: var(--small-circle);
   border-radius: 50%;
   outline: 2px solid white;
-  background-image: linear-gradient(to top right, #0945f3, #086df4);
+  background-image: linear-gradient(to top right, #0643f2, #0969e5);
   top: 50%;
   left: 50%;
   margin: calc((var(--small-circle) / 2) * (-1));
-  box-shadow: 0 0 3px #0635fb inset;
+  box-shadow: 0 0 3px #0015e9 inset;
+}
+
+.small-circle--active {
+  background-image: linear-gradient(to top right, #92c6fa, #2f8cee);
+  box-shadow: 0 0 3px #3999f0 inset;
+  transition: transform 0.6s ease;
+}
+
+.small-circle--active2 {
+  --scale: 1.1;
 }
 
 .small-circle--correct {
@@ -63,7 +74,11 @@ body {
   font-size: 30px;
   font-weight: 700;
   color: white;
-  text-shadow: 3px 3px #0635fb;
+  text-shadow: 3px 3px #0015e9;
+}
+
+.small-circle__text--active {
+  text-shadow: 3px 3px #3999f0;
 }
 
 .small-circle__text--correct {
@@ -104,101 +119,101 @@ body {
 /* Specific position of each small circle */
 .letter-a {
   transform: rotate(calc((var(--degrees) * 0) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 0) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 0) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-b {
   transform: rotate(calc((var(--degrees) * 1) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 1) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 1) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-c {
   transform: rotate(calc((var(--degrees) * 2) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 2) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 2) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-d {
   transform: rotate(calc((var(--degrees) * 3) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 3) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 3) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-e {
   transform: rotate(calc((var(--degrees) * 4) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 4) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 4) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-f {
   transform: rotate(calc((var(--degrees) * 5) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 5) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 5) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-g {
   transform: rotate(calc((var(--degrees) * 6) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 6) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 6) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-h {
   transform: rotate(calc((var(--degrees) * 7) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 7) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 7) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-i {
   transform: rotate(calc((var(--degrees) * 8) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 8) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 8) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-j {
   transform: rotate(calc((var(--degrees) * 9) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 9) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 9) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-l {
   transform: rotate(calc((var(--degrees) * 10) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 10) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 10) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-m {
   transform: rotate(calc((var(--degrees) * 11) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 11) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 11) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-n {
   transform: rotate(calc((var(--degrees) * 12) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 12) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 12) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-ñ {
   transform: rotate(calc((var(--degrees) * 13) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 13) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 13) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-o {
   transform: rotate(calc((var(--degrees) * 14) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 14) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 14) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-p {
   transform: rotate(calc((var(--degrees) * 15) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 15) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 15) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-q {
   transform: rotate(calc((var(--degrees) * 16) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 16) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 16) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-r {
   transform: rotate(calc((var(--degrees) * 17) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 17) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 17) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-s {
   transform: rotate(calc((var(--degrees) * 18) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 18) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 18) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-t {
   transform: rotate(calc((var(--degrees) * 19) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 19) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 19) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-u {
   transform: rotate(calc((var(--degrees) * 20) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 20) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 20) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-v {
   transform: rotate(calc((var(--degrees) * 21) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 21) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 21) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-x {
   transform: rotate(calc((var(--degrees) * 22) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 22) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 22) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-y {
   transform: rotate(calc((var(--degrees) * 23) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 23) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 23) - 90deg) * (-1))) scale(var(--scale));
 }
 .letter-z {
   transform: rotate(calc((var(--degrees) * 24) - 90deg)) translate(var(--main-radius))
-    rotate(calc(((var(--degrees) * 24) - 90deg) * (-1)));
+    rotate(calc(((var(--degrees) * 24) - 90deg) * (-1))) scale(var(--scale));
 }

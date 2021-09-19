@@ -22,13 +22,13 @@ function handleSubmit(e) {
     questions[index].status = 1;
     correct++;
     unanswered--;
-    changeCircleColor('correct');
+    modifyCircle('correct');
   } else {
     console.log('INCORRECT');
     questions[index].status = 2;
     incorrect++;
     unanswered--;
-    changeCircleColor('incorrect');
+    modifyCircle('incorrect');
   }
   textField.value = '';
   index++;
@@ -39,6 +39,7 @@ function handleSubmit(e) {
 
 function handlePasapalabra() {
   console.log('PASAPALABRA');
+  modifyCircle('remove');
   index++;
   if (index > 24) index = 0;
   updateResults();
@@ -57,6 +58,7 @@ function askQuestion() {
     askQuestion();
     return;
   }
+  modifyCircle('active');
   question.innerText = questions[index].questions[0].question;
 }
 
@@ -73,11 +75,31 @@ function removeAccents(text) {
     .normalize();
 }
 
-function changeCircleColor(status) {
+function modifyCircle(status) {
   const letter = questions[index].letter;
   const el = document.querySelector(`.letter-${letter}`);
-  el.classList.add(`small-circle--${status}`);
-  el.firstElementChild.classList.add(`small-circle__text--${status}`);
+  el.className = `small-circle letter-${letter} ${
+    status === 'remove' ? '' : `small-circle--${status}`
+  }`;
+  el.firstElementChild.className = `small-circle__text ${
+    status === 'remove' ? '' : `small-circle__text--${status}`
+  }`;
+  // Add event listener when the letter is active to trigger the transition loop, and remove it when it's not
+  if (status === 'active') {
+    el.className = `small-circle letter-${letter} small-circle--active small-circle--active2`;
+    el.addEventListener('transitionend', transitionLoop);
+  } else {
+    el.removeEventListener('transitionend', transitionLoop);
+  }
+}
+
+function transitionLoop(e) {
+  const el = e.target;
+  if (el.classList.contains('small-circle--active2')) {
+    el.classList.remove('small-circle--active2');
+  } else {
+    el.classList.add('small-circle--active2');
+  }
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
