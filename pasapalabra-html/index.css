@@ -48,11 +48,27 @@ body {
   margin: calc((var(--small-circle) / 2) * (-1));
 }
 
+.small-circle--correct {
+  background-image: linear-gradient(to right, #04ae46, #0ac43e);
+}
+
+.small-circle--incorrect {
+  background-image: linear-gradient(to right, #e70046, #e4015a);
+}
+
 .small-circle__text {
   font-size: 30px;
   font-weight: 700;
   color: white;
   text-shadow: 3px 3px #0635fb;
+}
+
+.small-circle__text--correct {
+  text-shadow: 3px 3px #0a9f3e;
+}
+
+.small-circle__text--incorrect {
+  text-shadow: 3px 3px #cb0237;
 }
 
 .question {

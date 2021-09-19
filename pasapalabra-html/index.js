@@ -22,11 +22,13 @@ function handleSubmit(e) {
     questions[index].status = 1;
     correct++;
     unanswered--;
+    changeCircleColor('correct');
   } else {
     console.log('INCORRECT');
     questions[index].status = 2;
     incorrect++;
     unanswered--;
+    changeCircleColor('incorrect');
   }
   textField.value = '';
   index++;
@@ -69,6 +71,13 @@ function removeAccents(text) {
     .normalize('NFD')
     .replace(/([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi, '$1')
     .normalize();
+}
+
+function changeCircleColor(status) {
+  const letter = questions[index].letter;
+  const el = document.querySelector(`.letter-${letter}`);
+  el.classList.add(`small-circle--${status}`);
+  el.firstElementChild.classList.add(`small-circle__text--${status}`);
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
