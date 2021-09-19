@@ -1,7 +1,7 @@
 :root {
   --num-elements: 25;
-  --main-circle: 500px;
-  --small-circle: 55px;
+  --main-circle: 450px;
+  --small-circle: 45px;
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
 }
@@ -41,19 +41,22 @@ body {
   width: var(--small-circle);
   height: var(--small-circle);
   border-radius: 50%;
-  border: 2px solid white;
+  outline: 2px solid white;
   background-image: linear-gradient(to top right, #0945f3, #086df4);
   top: 50%;
   left: 50%;
   margin: calc((var(--small-circle) / 2) * (-1));
+  box-shadow: 0 0 3px #0635fb inset;
 }
 
 .small-circle--correct {
   background-image: linear-gradient(to top right, #0fc249, #0de83d);
+  box-shadow: 0 0 3px #09bf39 inset;
 }
 
 .small-circle--incorrect {
   background-image: linear-gradient(to top right, #e70046, #e4015a);
+  box-shadow: 0 0 3px #cb0237 inset;
 }
 
 .small-circle__text {
@@ -64,7 +67,7 @@ body {
 }
 
 .small-circle__text--correct {
-  text-shadow: 3px 3px #0a9f3e;
+  text-shadow: 3px 3px #09bf39;
 }
 
 .small-circle__text--incorrect {
