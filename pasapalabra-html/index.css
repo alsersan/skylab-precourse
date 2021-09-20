@@ -5,6 +5,7 @@
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
   --scale: 1;
+  --background: #ccc;
 }
 
 html {
@@ -21,6 +22,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #ddd;
 }
 
 .main-circle {
@@ -31,7 +33,7 @@ body {
   width: var(--main-circle);
   height: var(--main-circle);
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: var(--background);
 }
 
 .small-circle {
@@ -98,6 +100,68 @@ body {
   font-size: 20px;
   text-align: center;
 }
+
+.timer-result {
+  width: 135px;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  outline: 2px solid white;
+  z-index: 2;
+  background-color: var(--background);
+}
+
+.timer__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  outline: 2px solid white;
+  background-image: linear-gradient(to top right, #0643f2, #0969e5);
+  box-shadow: 0 0 3px #0015e9 inset;
+}
+
+.timer__text {
+  font-size: 35px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 3px 3px #0015e9;
+}
+
+.correct {
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  outline: 2px solid white;
+  background-image: linear-gradient(to top right, #0fc249, #0de83d);
+  box-shadow: 0 0 3px #09bf39 inset;
+}
+
+.correct__text {
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 3px 3px #09bf39;
+}
+
 .results {
   position: absolute;
   top: 5%;
