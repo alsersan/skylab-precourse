@@ -1,7 +1,7 @@
 :root {
   --num-elements: 25;
   --main-circle: 450px;
-  --small-circle: 45px;
+  --small-circle: 48px;
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
   --scale: 1;
