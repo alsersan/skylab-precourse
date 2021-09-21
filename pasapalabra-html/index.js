@@ -6,8 +6,10 @@ let index = 0;
 let unanswered = 25;
 let correct = 0;
 let incorrect = 0;
+let timeLeft = 150;
 
 const questions = createQuestions();
+const timerID = startTimer();
 askQuestion();
 
 function handleSubmit(e) {
@@ -99,6 +101,19 @@ function transitionLoop(e) {
   } else {
     el.classList.add('small-circle--active2');
   }
+}
+
+function startTimer() {
+  const timer = document.querySelector('.timer__text');
+  return setInterval(() => {
+    timeLeft--;
+    timer.innerText = timeLeft;
+    if (timeLeft === 0) stopTimer();
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerID);
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
