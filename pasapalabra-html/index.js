@@ -6,7 +6,6 @@ let index = 0;
 let unanswered = 25;
 let correct = 0;
 let incorrect = 0;
-let timeLeft = 150;
 
 const questions = createQuestions();
 const timerID = startTimer();
@@ -104,10 +103,17 @@ function transitionLoop(e) {
 }
 
 function startTimer() {
-  const timer = document.querySelector('.timer__text');
+  const timerNumber = document.querySelector('.timer__text');
+  const timer = document.querySelector('.timer');
+  let timeLeft = parseInt(timerNumber.innerText, 10);
+  const degreeIncrement = 360 / timeLeft;
+  let degrees = 0;
+  //Countdown each second and reduce the white part of the timer circle
   return setInterval(() => {
     timeLeft--;
-    timer.innerText = timeLeft;
+    degrees += degreeIncrement;
+    timerNumber.innerText = timeLeft;
+    timer.style.background = `conic-gradient(transparent 0deg ${degrees}deg, white ${degrees}deg 360deg)`;
     if (timeLeft === 0) stopTimer();
   }, 1000);
 }
