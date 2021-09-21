@@ -12,19 +12,14 @@ askQuestion();
 
 function handleSubmit(e) {
   e.preventDefault();
-
   const textField = e.target[0];
-  console.log(textField.value);
   const answer = removeAccents(textField.value).trim().toLowerCase();
-
   if (answer === questions[index].questions[0].answer) {
-    console.log('CORRECT');
     questions[index].status = 1;
     correct++;
     unanswered--;
     modifyCircle('correct');
   } else {
-    console.log('INCORRECT');
     questions[index].status = 2;
     incorrect++;
     unanswered--;
@@ -38,7 +33,6 @@ function handleSubmit(e) {
 }
 
 function handlePasapalabra() {
-  console.log('PASAPALABRA');
   modifyCircle('remove');
   index++;
   if (index > 24) index = 0;
@@ -47,7 +41,6 @@ function handlePasapalabra() {
 }
 
 function askQuestion() {
-  console.log(index);
   if (unanswered === 0) {
     alert('GAME FINISHED');
     return;
