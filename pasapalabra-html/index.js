@@ -113,7 +113,7 @@ function startTimer() {
     timeLeft--;
     degrees += degreeIncrement;
     timerNumber.innerText = timeLeft;
-    timer.style.background = `conic-gradient(transparent 0deg ${degrees}deg, white ${degrees}deg 360deg)`;
+    timer.style.background = `conic-gradient(white 0deg ${degrees}deg, transparent ${degrees}deg 360deg)`;
     if (timeLeft === 0) stopTimer();
   }, 1000);
 }
