@@ -15,28 +15,20 @@ function handleSubmit(e) {
   const textField = e.target[0];
   const answer = removeAccents(textField.value).trim().toLowerCase();
   if (answer === questions[index].questions[0].answer) {
-    questions[index].status = 1;
-    correct++;
-    unanswered--;
+    updateResults('correct');
     modifyCircle('correct');
   } else {
-    questions[index].status = 2;
-    incorrect++;
-    unanswered--;
+    updateResults('incorrect');
     modifyCircle('incorrect');
   }
   textField.value = '';
-  index++;
-  if (index > 24) index = 0;
-  updateResults();
+  increaseIndex();
   askQuestion();
 }
 
 function handlePasapalabra() {
   modifyCircle('remove');
-  index++;
-  if (index > 24) index = 0;
-  updateResults();
+  increaseIndex();
   askQuestion();
 }
 
@@ -46,8 +38,7 @@ function askQuestion() {
     return;
   }
   if (questions[index].status !== 0) {
-    index++;
-    if (index > 24) index = 0;
+    increaseIndex();
     askQuestion();
     return;
   }
@@ -55,10 +46,24 @@ function askQuestion() {
   question.innerText = questions[index].questions[0].question;
 }
 
-function updateResults() {
+function updateResults(status) {
+  if (status === 'correct') {
+    questions[index].status = 1;
+    correct++;
+    unanswered--;
+  } else if (status === 'incorrect') {
+    questions[index].status = 2;
+    incorrect++;
+    unanswered--;
+  }
   document.querySelector('.results__unanswered').innerText = unanswered;
   document.querySelector('.results__correct').innerText = correct;
   document.querySelector('.results__incorrect').innerText = incorrect;
+}
+
+function increaseIndex() {
+  index++;
+  if (index > 24) index = 0;
 }
 
 function removeAccents(text) {
