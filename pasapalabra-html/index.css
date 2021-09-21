@@ -44,8 +44,8 @@ body {
   width: var(--small-circle);
   height: var(--small-circle);
   border-radius: 50%;
-  outline: 2px solid white;
-  background-image: linear-gradient(to top right, #0643f2, #0969e5);
+  border: 2px solid white;
+  background: linear-gradient(to top right, #0643f2, #0969e5);
   top: 50%;
   left: 50%;
   margin: calc((var(--small-circle) / 2) * (-1));
@@ -53,7 +53,7 @@ body {
 }
 
 .small-circle--active {
-  background-image: linear-gradient(to top right, #92c6fa, #2f8cee);
+  background: linear-gradient(to top right, #92c6fa, #2f8cee);
   box-shadow: 0 0 3px #3999f0 inset;
   transition: transform 0.6s ease;
 }
@@ -63,12 +63,12 @@ body {
 }
 
 .small-circle--correct {
-  background-image: linear-gradient(to top right, #0fc249, #0de83d);
+  background: linear-gradient(to top right, #0fc249, #0de83d);
   box-shadow: 0 0 3px #09bf39 inset;
 }
 
 .small-circle--incorrect {
-  background-image: linear-gradient(to top right, #e70046, #e4015a);
+  background: linear-gradient(to top right, #e70046, #e4015a);
   box-shadow: 0 0 3px #cb0237 inset;
 }
 
@@ -117,7 +117,7 @@ body {
   width: 95px;
   height: 95px;
   border-radius: 50%;
-  outline: 2px solid white;
+  border: 2px solid white;
   z-index: 2;
   background: conic-gradient(white 0deg 360deg);
 }
@@ -129,8 +129,8 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  outline: 2px solid white;
-  background-image: linear-gradient(to top right, #0643f2, #0969e5);
+  border: 2px solid white;
+  background: linear-gradient(to top right, #0643f2, #0969e5);
   box-shadow: 0 0 3px #0015e9 inset;
 }
 
@@ -150,8 +150,8 @@ body {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  outline: 2px solid white;
-  background-image: linear-gradient(to top right, #0fc249, #0de83d);
+  border: 2px solid white;
+  background: linear-gradient(to top right, #0fc249, #0de83d);
   box-shadow: 0 0 3px #09bf39 inset;
 }
 
