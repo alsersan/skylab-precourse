@@ -59,9 +59,6 @@ function updateResults(status) {
     incorrect++;
     unanswered--;
   }
-  document.querySelector('.results__unanswered').innerText = unanswered;
-  document.querySelector('.results__correct').innerText = correct;
-  document.querySelector('.results__incorrect').innerText = incorrect;
 }
 
 function increaseIndex() {
