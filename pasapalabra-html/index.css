@@ -1,11 +1,10 @@
 :root {
   --num-elements: 25;
   --main-circle: 700px;
-  --small-circle: 68px;
+  --small-circle: 70px;
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
   --scale: 1;
-  --background: #ccc;
 }
 
 html {
@@ -22,7 +21,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ddd;
+  background: url('pasapalabra.webp');
 }
 
 .main-circle {
@@ -33,7 +32,6 @@ body {
   width: var(--main-circle);
   height: var(--main-circle);
   border-radius: 50%;
-  background-color: var(--background);
 }
 
 .small-circle {
