@@ -58,6 +58,7 @@ function updateResults(status) {
     questions[index].status = 2;
     incorrect++;
     unanswered--;
+    document.querySelector('.incorrect__text').innerText = incorrect;
   }
 }
 

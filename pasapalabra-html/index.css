@@ -24,6 +24,7 @@ body {
   background: url('pasapalabra.webp');
 }
 
+/* CIRCLE */
 .main-circle {
   position: absolute;
   top: 50%;
@@ -99,8 +100,9 @@ body {
   text-align: center;
 }
 
+/* TIMER AND RESULTS */
 .timer-result {
-  width: 212px;
+  width: 210px;
   position: absolute;
   bottom: 5%;
   left: 10%;
@@ -117,7 +119,7 @@ body {
   height: var(--size);
   border-radius: 50%;
   border: 2px solid white;
-  z-index: 2;
+  z-index: 3;
   background: conic-gradient(#0067df 0deg 360deg);
 }
 
@@ -142,8 +144,9 @@ body {
 }
 
 .correct {
-  --size: 75px;
+  --size: 77px;
   position: absolute;
+  top: 4%;
   right: 0;
   display: flex;
   justify-content: center;
@@ -154,6 +157,7 @@ body {
   border: 2px solid white;
   background: linear-gradient(to top right, #0fc249, #0de83d);
   box-shadow: 0 0 3px #09bf39 inset;
+  z-index: 2;
 }
 
 .correct__text {
@@ -163,10 +167,27 @@ body {
   text-shadow: 3px 3px #09bf39;
 }
 
-.results {
+.incorrect {
+  --size: 77px;
   position: absolute;
-  top: 5%;
-  right: 5%;
+  bottom: 4%;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 2px solid white;
+  background: linear-gradient(to top right, #e70046, #e4015a);
+  box-shadow: 0 0 3px #cb0237 inset;
+}
+
+.incorrect__text {
+  font-size: 38px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 3px 3px #cb0237;
 }
 
 .user-input {
