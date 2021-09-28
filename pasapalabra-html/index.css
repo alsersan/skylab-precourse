@@ -1,7 +1,7 @@
 :root {
   --num-elements: 25;
-  --main-circle: 450px;
-  --small-circle: 48px;
+  --main-circle: 700px;
+  --small-circle: 68px;
   --degrees: calc(360deg / var(--num-elements));
   --main-radius: calc(var(--main-circle) / 2);
   --scale: 1;
@@ -28,7 +28,7 @@ body {
 .main-circle {
   position: absolute;
   top: 50%;
-  left: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: var(--main-circle);
   height: var(--main-circle);
@@ -73,7 +73,7 @@ body {
 }
 
 .small-circle__text {
-  font-size: 30px;
+  font-size: 45px;
   font-weight: 700;
   color: white;
   text-shadow: 3px 3px #0015e9;
@@ -102,20 +102,21 @@ body {
 }
 
 .timer-result {
-  width: 145px;
+  width: 212px;
   position: absolute;
-  top: 50%;
-  right: 10%;
+  bottom: 5%;
+  left: 10%;
   display: flex;
   align-items: center;
 }
 
 .timer {
+  --size: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: var(--size);
+  height: var(--size);
   border-radius: 50%;
   border: 2px solid white;
   z-index: 2;
@@ -123,11 +124,12 @@ body {
 }
 
 .timer__inner {
+  --size: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85px;
-  height: 85px;
+  width: var(--size);
+  height: var(--size);
   border-radius: 50%;
   border: 2px solid white;
   background: linear-gradient(to top right, #0643f2, #0969e5);
@@ -135,20 +137,21 @@ body {
 }
 
 .timer__text {
-  font-size: 38px;
+  font-size: 60px;
   font-weight: 700;
   color: white;
   text-shadow: 3px 3px #0015e9;
 }
 
 .correct {
+  --size: 75px;
   position: absolute;
   right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 55px;
-  height: 55px;
+  width: var(--size);
+  height: var(--size);
   border-radius: 50%;
   border: 2px solid white;
   background: linear-gradient(to top right, #0fc249, #0de83d);
@@ -156,7 +159,7 @@ body {
 }
 
 .correct__text {
-  font-size: 28px;
+  font-size: 38px;
   font-weight: 700;
   color: white;
   text-shadow: 3px 3px #09bf39;
