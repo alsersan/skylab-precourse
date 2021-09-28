@@ -170,7 +170,7 @@ function createQuestions() {
       questions: [
         { question: 'CON LA C. Niño, crío, bebé.', answer: 'churumbel' },
         {
-          question: "CON LA C. De las novelas 'Cancion de hielo y fuego', 'Las lluvias de ...'.",
+          question: "CON LA C. De las novelas 'Canción de hielo y fuego', 'Las lluvias de...'.",
           answer: 'castamere',
         },
         {
@@ -191,7 +191,7 @@ function createQuestions() {
         },
         {
           question:
-            'CON LA D. Tipo de animal grande y extinto que asombró a la generación de los 90.',
+            'CON LA D. Reptil fósil, propio del Mesozoico, generalmente de gran tamaño, cabeza pequeña, cuello largo, cola robusta y larga, y extremidades posteriores más largas que las anteriores.',
           answer: 'dinosaurio',
         },
         {
@@ -206,16 +206,17 @@ function createQuestions() {
       questions: [
         {
           question:
-            'CON LA E. Gelatinoso y se encuentra debajo de la membrana plasmática. Los cazafantasmas medían su radiación.',
-          answer: 'ectoplasma',
+            'CON LA E. Afección cutánea caracterizada por vesículas rojizas y exudativas, que dan lugar a costras y escamas.',
+          answer: 'eccema',
         },
         {
           question: 'CON LA E. Idioma universal artificial creado por el polaco L. L. Zamenhof.',
           answer: 'esperanto',
         },
         {
-          question: 'CON LA E. Dirigente femenina de un imperio.',
-          answer: 'emperatriz',
+          question:
+            'CON LA E. Jefe supremo del antiguo Imperio romano, y que originariamente se nombraba por aclamación del Ejército o decreto del Senado.',
+          answer: 'emperador',
         },
       ],
     },
@@ -232,7 +233,8 @@ function createQuestions() {
           answer: 'fantasia',
         },
         {
-          question: 'CON LA F. Dirigente masculino en el antíguo Egipto.',
+          question:
+            'CON LA F. Cada uno de los antiguos reyes de Egipto anteriores a la conquista de este país por los persas.',
           answer: 'faraon',
         },
       ],
@@ -248,7 +250,7 @@ function createQuestions() {
         },
         {
           question:
-            "CON LA G. Título original en España de la aclamada película de ciencia ficción. 'La guerra de las ...'.",
+            "CON LA G. Título original en España de la aclamada película de ciencia ficción. 'La guerra de las...'.",
           answer: 'galaxias',
         },
         {
@@ -262,16 +264,17 @@ function createQuestions() {
       status: 0,
       questions: [
         {
-          question: 'CON LA H. Suicidio ritual japonés por desentrañamiento.',
+          question:
+            'CON LA H. Forma de suicidio ritual, practicado en el Japón por razones de honor o por orden superior, consistente en abrirse el vientre.',
           answer: 'harakiri',
         },
         {
-          question:
-            'CON LA H. Palabra japonesa utilizada para comenzar en artes marciales como Karate o Judo.',
-          answer: 'hajime',
+          question: 'CON LA H. Herir el amor propio o la dignidad de alguien.',
+          answer: 'humillar',
         },
         {
-          question: 'CON LA H. Agua en estado sólido.',
+          question:
+            'CON LA H. Agua convertida en cuerpo sólido y cristalino por un descenso suficiente de temperatura.',
           answer: 'hielo',
         },
       ],
@@ -285,7 +288,7 @@ function createQuestions() {
           answer: 'iglesia',
         },
         {
-          question: "CON LA I. Pais-Ciudad controlada por Saruman en 'El señor de los anillos'.",
+          question: "CON LA I. País-Ciudad controlada por Saruman en 'El señor de los anillos'.",
           answer: 'isengard',
         },
         {
@@ -398,9 +401,8 @@ function createQuestions() {
       status: 0,
       questions: [
         {
-          question:
-            'CON LA O. Humanoide fantástico de apariencia terrible y bestial, piel de color verde creada por el escritor Tolkien.',
-          answer: 'orco',
+          question: 'CON LA O. Órgano externo de la audición.',
+          answer: 'oreja',
         },
 
         {
@@ -419,7 +421,7 @@ function createQuestions() {
       questions: [
         {
           question:
-            'CON LA P. Raza ancestral tecnológicamente avanzada que se caracteriza por sus grandes poderes psíonicos del videojuego StarCraft.',
+            'CON LA P. Raza ancestral tecnológicamente avanzada que se caracteriza por sus grandes poderes psiónicos del videojuego StarCraft.',
           answer: 'protoss',
         },
         {
@@ -454,7 +456,7 @@ function createQuestions() {
       status: 0,
       questions: [
         {
-          question: "CON LA R. Ciudad Elfica gobernada por Elrond en 'El señor de los anillos'.",
+          question: "CON LA R. Ciudad élfica gobernada por Elrond en 'El señor de los anillos'.",
           answer: 'rivendel',
         },
         {
@@ -558,7 +560,7 @@ function createQuestions() {
         },
         {
           question:
-            'CON LA X. Instrumento musical de percusión con láminas afinadas cada una a un tono específico.',
+            'CON LA X. Instrumento musical de percusión formado por láminas generalmente de madera, ordenadas horizontalmente según su tamaño y sonido, que se hacen sonar golpeándolas con dos baquetas.',
           answer: 'xilofono',
         },
         {
@@ -573,7 +575,7 @@ function createQuestions() {
       questions: [
         {
           question:
-            'CONTIENE LA Y. Pequeño cáctus conocido por sus alcaloides psicoactivos utilizado de forma ritual y medicinal por indígenas americanos.',
+            'CONTIENE LA Y. Planta cactácea, de pequeño tamaño, que contiene una sustancia cuya ingestión produce efectos alucinógenos y narcóticos.',
           answer: 'peyote',
         },
         {
@@ -598,14 +600,13 @@ function createQuestions() {
           answer: 'zen',
         },
         {
-          question:
-            'CON LA Z. Vulpes vulpes, mamífero de la familia cánidos, depredador de conejos y gallinas entre otros.',
-          answer: 'zorro',
+          question: 'CON LA Z. Zapato de madera de una pieza.',
+          answer: 'zueco',
         },
         {
           question:
             'CON LA Z. Calzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine.',
-          answer: 'zangano',
+          answer: 'zapato',
         },
       ],
     },
