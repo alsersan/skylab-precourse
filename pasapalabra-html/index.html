@@ -10,6 +10,14 @@
   <body>
     <div class="main-circle">
       <span class="question"></span>
+      <form class="user-input" id="user-input">
+        <label for="input" class="user-input__label">Tu respuesta</label>
+        <input type="text" id="input" class="user-input__field" autocomplete="off" />
+        <div class="button-row">
+          <button type="button" class="pasapalabra button">Pasapalabra</button>
+          <button type="submit" id="submit" class="user-input__submit button">Enviar</button>
+        </div>
+      </form>
       <div class="small-circle letter-a">
         <span class="small-circle__text">A</span>
       </div>
@@ -99,12 +107,6 @@
         <span class="incorrect__text">0</span>
       </div>
     </div>
-    <form class="user-input" id="user-input">
-      <label for="input">Input</label>
-      <input type="text" id="input" />
-      <button type="submit" id="submit">Answer</button>
-    </form>
-    <button class="pasapalabra">Pasapalabra</button>
     <script src="index.js"></script>
   </body>
 </html>
