@@ -2,8 +2,9 @@ const question = document.querySelector('.question');
 document.getElementById('user-input').addEventListener('submit', handleSubmit);
 document.querySelector('.pasapalabra').addEventListener('click', handlePasapalabra);
 
+const numOfQuestions = 25;
 let index = 0;
-let unanswered = 25;
+let unanswered = numOfQuestions;
 let correct = 0;
 let incorrect = 0;
 
@@ -65,7 +66,7 @@ function updateResults(status) {
 
 function increaseIndex() {
   index++;
-  if (index > 24) index = 0;
+  if (index > numOfQuestions - 1) index = 0;
 }
 
 function removeAccents(text) {
