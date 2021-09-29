@@ -1,4 +1,5 @@
 const question = document.querySelector('.question');
+document.querySelector('.play__button').addEventListener('click', startGame);
 document.getElementById('user-input').addEventListener('submit', handleSubmit);
 document.querySelector('.pasapalabra').addEventListener('click', handlePasapalabra);
 
@@ -9,8 +10,15 @@ let correct = 0;
 let incorrect = 0;
 
 const questions = createQuestions();
-const timerID = startTimer();
-askQuestion();
+let timerID;
+
+function startGame() {
+  document.querySelector('.play').classList.add('move-up');
+  setTimeout(() => {
+    timerID = startTimer();
+    askQuestion();
+  }, 1500);
+}
 
 function handleSubmit(e) {
   e.preventDefault();
