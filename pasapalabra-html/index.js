@@ -13,9 +13,11 @@ let correct = 0;
 let incorrect = 0;
 
 let questions = createQuestions();
+let questionSet;
 let timerID;
 
 function startGame() {
+  questionSet = Math.floor(Math.random() * (2 + 1));
   document.querySelector('.play').classList.add('move-up');
   setTimeout(() => {
     timerID = startTimer();
@@ -27,7 +29,7 @@ function handleSubmit(e) {
   e.preventDefault();
   const textField = e.target[0];
   const answer = removeAccents(textField.value).trim().toLowerCase();
-  if (answer === questions[index].questions[0].answer) {
+  if (answer === questions[index].questions[questionSet].answer) {
     updateResults('correct');
     modifyCircle('correct');
   } else {
@@ -56,7 +58,7 @@ function askQuestion() {
     return;
   }
   modifyCircle('active');
-  question.innerText = questions[index].questions[0].question;
+  question.innerText = questions[index].questions[questionSet].question;
 }
 
 function updateResults(status) {
@@ -161,6 +163,7 @@ function newGame() {
   document.querySelector('.timer__text').innerText = initialTime;
   document.querySelector('.user-input__field').value = '';
   document.querySelector('.timer').style.background = 'conic-gradient(#0067df 0deg 360deg)';
+  question.innerText = '';
   // Reset the circles to the unanswered state
   for (let i = 0; i < numOfQuestions; i++) {
     index = i;
