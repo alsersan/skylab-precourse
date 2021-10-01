@@ -183,13 +183,23 @@ main {
 }
 
 .button {
+  flex-grow: 1;
   margin: var(--margin);
   border: none;
   cursor: pointer;
   height: 50px;
-  width: 140px;
   border-radius: 4px;
-  font-size: 20px;
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+  border: 2px solid white;
+  background: linear-gradient(to top right, #2e62ea, #319ff8);
+  text-shadow: 3px 3px #2e62ea;
+}
+
+.button-row {
+  display: flex;
+  width: 100%;
 }
 
 /* TIMER AND RESULTS */
@@ -280,6 +290,14 @@ main {
   font-weight: 700;
   color: white;
   text-shadow: 3px 3px #cb0237;
+}
+
+/* END GAME BUTTON */
+.end-button {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  width: 200px;
 }
 
 /* Specific position of each small circle */
