@@ -5,12 +5,14 @@ document.querySelector('.pasapalabra').addEventListener('click', handlePasapalab
 document.querySelector('.end-button').addEventListener('click', endGame);
 
 const numOfQuestions = 25;
+const initialTime = 150;
+let timeLeft = initialTime;
 let index = 0;
 let unanswered = numOfQuestions;
 let correct = 0;
 let incorrect = 0;
 
-const questions = createQuestions();
+let questions = createQuestions();
 let timerID;
 
 function startGame() {
@@ -113,7 +115,6 @@ function transitionLoop(e) {
 function startTimer() {
   const timerNumber = document.querySelector('.timer__text');
   const timer = document.querySelector('.timer');
-  let timeLeft = parseInt(timerNumber.innerText, 10);
   const degreeIncrement = 360 / timeLeft;
   let degrees = 0;
   //Countdown each second and reduce the white part of the timer circle
@@ -132,7 +133,6 @@ function stopTimer() {
 
 function endGame() {
   stopTimer();
-  modifyCircle('remove');
   document.querySelector('.end-screen').classList.add('move-down');
   const string1 = correct === 1 ? 'respuesta correcta' : 'respuestas correctas';
   const string2 = incorrect === 1 ? 'respuesta incorrecta' : 'respuestas incorrectas';
@@ -141,6 +141,34 @@ function endGame() {
     Tienes${
       unanswered > 0 ? ` ${unanswered} ${string3} sin responder,` : ''
     } ${correct} ${string1} y ${incorrect} ${string2}.`;
+
+  document.querySelector('.no-repeat').addEventListener('click', () => location.reload());
+  document.querySelector('.repeat').addEventListener('click', newGame);
+}
+
+function newGame() {
+  // Reset counters
+  timeLeft = initialTime;
+  correct = 0;
+  incorrect = 0;
+  unanswered = numOfQuestions;
+  questions = createQuestions();
+  //Remove end screen
+  document.querySelector('.end-screen').classList.remove('move-down');
+  // Reset everything to its initial state
+  document.querySelector('.correct__text').innerText = '0';
+  document.querySelector('.incorrect__text').innerText = '0';
+  document.querySelector('.timer__text').innerText = initialTime;
+  document.querySelector('.user-input__field').value = '';
+  document.querySelector('.timer').style.background = 'conic-gradient(#0067df 0deg 360deg)';
+  // Reset the circles to the unanswered state
+  for (let i = 0; i < numOfQuestions; i++) {
+    index = i;
+    modifyCircle('remove');
+  }
+  index = 0;
+  // Start the game
+  startGame();
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
