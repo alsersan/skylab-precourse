@@ -2,6 +2,7 @@ const question = document.querySelector('.question');
 document.querySelector('.play__button').addEventListener('click', startGame);
 document.getElementById('user-input').addEventListener('submit', handleSubmit);
 document.querySelector('.pasapalabra').addEventListener('click', handlePasapalabra);
+document.querySelector('.end-button').addEventListener('click', endGame);
 
 const numOfQuestions = 25;
 let index = 0;
@@ -44,7 +45,7 @@ function handlePasapalabra() {
 
 function askQuestion() {
   if (unanswered === 0) {
-    alert('GAME FINISHED');
+    endGame();
     return;
   }
   if (questions[index].status !== 0) {
@@ -127,6 +128,18 @@ function startTimer() {
 
 function stopTimer() {
   clearInterval(timerID);
+}
+
+function endGame() {
+  stopTimer();
+  const string1 = correct === 1 ? 'respuesta correcta' : 'respuestas correctas';
+  const string2 = incorrect === 1 ? 'respuesta incorrecta' : 'respuestas incorrectas';
+  const string3 = unanswered === 1 ? 'pregunta' : 'preguntas';
+  alert(
+    `Tienes${
+      unanswered > 0 ? ` ${unanswered} ${string3} sin responder,` : ''
+    } ${correct} ${string1} y ${incorrect} ${string2}. ¡Hasta la próxima!`
+  );
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
