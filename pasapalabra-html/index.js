@@ -18,7 +18,7 @@ function startGame() {
   setTimeout(() => {
     timerID = startTimer();
     askQuestion();
-  }, 1500);
+  }, 1200);
 }
 
 function handleSubmit(e) {
@@ -132,14 +132,15 @@ function stopTimer() {
 
 function endGame() {
   stopTimer();
+  modifyCircle('remove');
+  document.querySelector('.end-screen').classList.add('move-down');
   const string1 = correct === 1 ? 'respuesta correcta' : 'respuestas correctas';
   const string2 = incorrect === 1 ? 'respuesta incorrecta' : 'respuestas incorrectas';
   const string3 = unanswered === 1 ? 'pregunta' : 'preguntas';
-  alert(
-    `Tienes${
+  document.querySelector('.end-content__score').innerText = `
+    Tienes${
       unanswered > 0 ? ` ${unanswered} ${string3} sin responder,` : ''
-    } ${correct} ${string1} y ${incorrect} ${string2}. ¡Hasta la próxima!`
-  );
+    } ${correct} ${string1} y ${incorrect} ${string2}.`;
 }
 
 // Status 0 = not answered; status 1 = answered correctly; status 2: answered incorrectly
