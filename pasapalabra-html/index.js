@@ -22,7 +22,7 @@ function startGame() {
   setTimeout(() => {
     timerID = startTimer();
     askQuestion();
-  }, 1200);
+  }, 1000);
 }
 
 function handleSubmit(e) {

@@ -30,7 +30,7 @@ body {
   height: 100vh;
   background-color: #ccc;
   position: absolute;
-  transition: transform 1s ease-in-out;
+  transition: transform 600ms ease-in-out;
   background: url('start.jpg') no-repeat, linear-gradient(to top, #2e62ea, #319ff8);
   background-size: auto 100vh;
   background-position: center;
