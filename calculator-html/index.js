@@ -95,7 +95,7 @@ function parseSqrRoot(expression) {
         '**0.5)' +
         newExpression.slice(lastIndex + 1);
     } else if (lastIndex === null) {
-      // Closing parenthesis has not been found, so it's added artificially
+      // Closing parenthesis has not been found, so it is added artificially
       newExpression = newExpression.slice(0, index) + '(' + newExpression.slice(next) + ')**0.5)';
     } else {
       // Square root symbol alone, with no content
