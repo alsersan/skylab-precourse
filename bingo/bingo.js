@@ -22,9 +22,11 @@ function bingo() {
       showCard(cardNumbers);
     }
     points += checkWinner(cardNumbers, winners);
-    !winners.fullHouseBingo
-      ? (newTurn = confirm('Do you want to pick another number?'))
-      : (newTurn = false);
+    if (winners.fullHouseBingo) {
+      newTurn = false;
+    } else {
+      newTurn = confirm('Do you want to pick another number?');
+    }
   } while (newTurn);
   if (winners.fullHouseBingo) {
     printFinalScore(username, points);
