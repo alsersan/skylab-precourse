@@ -51,10 +51,9 @@ function printScore(username, score) {
   const string1 = correct === 1 ? 'respuesta correcta' : 'respuestas correctas';
   const string2 = wrong === 1 ? 'respuesta incorrecta' : 'respuestas incorrectas';
   const string3 = unanswered === 1 ? 'pregunta' : 'preguntas';
+  const unansweredString = unanswered > 0 ? ` ${unanswered} ${string3} sin responder,` : '';
   alert(
-    `Tienes${
-      unanswered > 0 ? ` ${unanswered} ${string3} sin responder,` : ''
-    } ${correct} ${string1} y ${wrong} ${string2}. ¡Hasta la próxima, ${username}!`
+    `Tienes${unansweredString} ${correct} ${string1} y ${wrong} ${string2}. ¡Hasta la próxima, ${username}!`
   );
 }
 
